@@ -1,0 +1,28 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper {
+	display: flex;
+	
+}
+.main {
+	width: 50%;
+	/*border: 1px solid black;*/
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.paintDetails__detail {
+	display: inline-block;
+	background: red;
+	color: white;
+	border: 1px solid red;
+	padding: 3px;
+	margin: 3px;
+}
