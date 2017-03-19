@@ -60,10 +60,12 @@ class App extends React.Component {
   
 	 const searchItems = this.state.episodes.map((item) => {
 	 	for (let i in item) {
-	 		
+	 		if (item[i] === "1") {
+	 			console.log(i)
+	 		}
 	 	}
 	 })
-	 console.log(newArray)
+	 // console.log(newArray)
 
 
   }
