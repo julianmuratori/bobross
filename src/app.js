@@ -56,18 +56,42 @@ class App extends React.Component {
   episodeGuide(e) {
   	e.preventDefault();
   	const newArray = Array.from(this.state.paintDetailsSelection)
+  	const episodeArray = Array.from(this.state.episodes)
   	// Take the details from paintDetailsSelection and search episodes for matching values
-  
-	 const searchItems = this.state.episodes.map((item) => {
-	 	for (let i in item) {
-	 		if (item[i] === "1") {
-	 			console.log(i)
-	 		}
-	 	}
-	 })
-	 // console.log(newArray)
+  	// filter episodearray and then for each episode, go through paint details and check to see if the value in paintdetails is inside the episode, if so then return true.
 
+   	const details = []
+  	const firstQuery = episodeArray.filter((episode) => {
+  		return episode[newArray[0]]
+	}) 
+  	const secondQuery = firstQuery.filter((episode) => {
+  		return episode[newArray[1]]
+  	})
 
+  	const thirdQuery = secondQuery.filter((episode) => {
+	return episode[newArray[2]]
+  	
+  	})
+  	
+  	if (thirdQuery.length === 0) {
+  		details.push(secondQuery)
+  	} else {
+  		details.push(thirdQuery)
+  	}
+
+  	console.log(details)
+  	console.log(thirdQuery.length)
+
+  	/*newArray.forEach((i) => {
+  		let detail = i;
+  		const hello = episodeArray.filter((episode) => {
+  			return episode[detail];
+  		})
+
+  		details.push(hello)
+  	 });
+  	var merged = [].concat.apply([], details);
+  	console.log(merged) */
   }
 	render() {
 		return (
@@ -104,9 +128,20 @@ class App extends React.Component {
 // initial database query to grab main data array and also to grab list of painting details
 
 			dbRef.on('value', (response) => {
-				const episodeDatabase = response.val()
+				let episodeDatabase = response.val()
 				let details = episodeDatabase.splice(0,1)
-				let detailsArray = [];
+				let detailsArray = []
+
+// Removes details in each object that don't appear in the episode
+// For example, if trees don't appear in S3E04, they are removed from state
+				for (let objects in episodeDatabase) {
+					let hey = episodeDatabase[objects];
+					for (let i in hey) {
+						if (hey[i] === "0") {
+							delete hey[i];
+						}
+					}
+				}
 
 				for (let detailValue in details) {
 					const detail = details[detailValue];
