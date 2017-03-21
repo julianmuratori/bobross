@@ -73,25 +73,20 @@ class App extends React.Component {
   	
   	})
   	
-  	if (thirdQuery.length === 0) {
+  	if (secondQuery.length === 0) {
+  		details.push(firstQuery)
+  	} else if (thirdQuery.length === 0) {
   		details.push(secondQuery)
   	} else {
   		details.push(thirdQuery)
   	}
 
+  	if (details.length > 5) {
+  		details.splice(0,5)
+  	} else if (details.length < 1) {
+  		console.log("No Results")
+  	}
   	console.log(details)
-  	console.log(thirdQuery.length)
-
-  	/*newArray.forEach((i) => {
-  		let detail = i;
-  		const hello = episodeArray.filter((episode) => {
-  			return episode[detail];
-  		})
-
-  		details.push(hello)
-  	 });
-  	var merged = [].concat.apply([], details);
-  	console.log(merged) */
   }
 	render() {
 		return (
