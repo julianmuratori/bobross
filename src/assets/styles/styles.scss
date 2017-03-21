@@ -1,0 +1,128 @@
+@import './setup';
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	max-width: 1300px;
+	margin: 0 auto;
+	font-family: 'Yesteryear', cursive;
+}
+
+h1 {
+	margin: 0;
+	font-size: 6rem;
+	animation: fadeIn 5s linear;
+	text-align: center;
+	padding-top: 100px;
+}
+
+.headerStyle {
+	// background: url('../src/assets/images/treeline1.svg') no-repeat;
+	background-color: rgb(124,255,251);
+	background-size: cover;
+	background-position: center bottom;
+	height: 100vh;
+	position: relative;
+
+}
+
+
+
+div.treeSVG {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background: url("../src/assets/images/treeline1.svg");
+	background-repeat: repeat;
+
+	img {
+		display: block;
+	}
+	}
+
+.rossContainer {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+
+// svg.cloud {
+//   height: 50%;
+//   width: 50%;
+// }
+// path {
+//   fill: white;
+//   stroke: white;
+//   stroke-width: 2;
+//   stroke-linejoin: round;
+// }
+
+// .headerStyle .cloud {
+// 	width: 20%;
+// 	color: white;
+// }
+
+.rossPhoto {
+	border-radius: 50%;
+	border: 1px solid rgb(124,255,251);
+	animation: sunThrob 3s linear infinite;
+
+	&:hover {
+
+	}
+}
+
+@keyframes sunThrob {
+	0% {
+		-webkit-box-shadow: 0px 0px 85px 0px rgba(235,192,18,1);
+	}
+	50% {
+		-webkit-box-shadow: 0px 0px 5px 0px rgba(235,192,18,1);
+	}
+	100% {
+		-webkit-box-shadow: 0px 0px 85px 0px rgba(235,192,18,1);
+	}
+}
+
+.handwriting {
+	width: 40%;
+	font-family: 'Yesteryear', cursive;
+}
+
+
+.wrapper {
+	display: flex;
+	height: 100vh;
+	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(255,124,129,1)), color-stop(100%, rgba(180,124,128,1))); 
+}
+
+div.main {
+	width: calc(50% - 100px);
+	// background-color: rgb(215,233,222);
+	background-color: rgb(124,255,251);
+	padding: 30px;
+	margin: 50px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.3);
+	height: 65%;
+
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.paintDetails__detail {
+	display: inline-block;
+	// background: red;
+	// color: white;
+	border: 1px solid red;
+	padding: 3px;
+	margin: 3px;
+}
+

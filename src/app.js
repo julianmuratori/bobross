@@ -19,7 +19,8 @@ class App extends React.Component {
     this.state = {
       episodes: [],
       paintDetails: [],
-      paintDetailsSelection: []
+      paintDetailsSelection: [],
+      episodeGuide: []
     };
     this.addItem = this.addItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
@@ -81,15 +82,35 @@ class App extends React.Component {
   		details.push(thirdQuery)
   	}
 
-  	if (details.length > 5) {
-  		details.splice(0,5)
-  	} else if (details.length < 1) {
+  console.log(details)
+
+  	if (details[0].length > 5) {
+  		details[0].splice(5)
+  	} else if (details[0].length < 1) {
   		console.log("No Results")
   	}
-  	console.log(details)
+  	
+  	this.setState({
+  		episodeGuide: details[0]
+  	})
   }
 	render() {
 		return (
+<div>
+	<header>
+		<div className="headerStyle">
+			<h1>The Joy of Painting!</h1>
+			<div className="cloud">
+				<img src="../src/assets/images/cloud-2.svg"/>
+			</div>
+			<div className="rossContainer">
+				<img src="../src/assets/images/ross-portrait.jpg" className="rossPhoto"/>
+			</div>
+			<div className="treeSVG">
+				<img src="../src/assets/images/treeline1.svg"/>
+			</div>
+		</div>
+	</header>
 	<div className="wrapper">	
 		<div className="selectedDetails main">
 		<p>hey</p>
@@ -97,7 +118,7 @@ class App extends React.Component {
 			<ul>
 				{this.state.paintDetailsSelection.map((detail, i) => {
 					return (
-						<li onClick={() => this.removeItem(detail, i)} className="paintDetails__detail">{detail}</li>
+						<li onClick={() => this.removeItem(detail, i)} className="paintDetails__detail animation-target">{detail}</li>
 					)
 				})}
 			</ul>
@@ -105,19 +126,35 @@ class App extends React.Component {
 		</form>
 		</div>	
 		<div className="paintDetails main">
+			<h3>Select the happiest of details: </h3>
  			<ul>
  				{this.state.paintDetails.map((detail, i) => {
  						return (
- 							<li onClick={() => this.addItem(detail, i)} name={detail} key={detail} id={`${i}`} className="paintDetails__detail" ref={ref => this.detail = ref}>{detail}</li>
+ 							<li onClick={() => this.addItem(detail, i)} name={detail} key={detail} id={`${i}`} className="paintDetails__detail animation-target" ref={ref => this.detail = ref}>{detail}</li>
 						)
 	 				}
 				)}
  			</ul>
 		</div>
 	</div>	
+	<section>
+			<div>
+
+			<h3>Here's a sick list of episodes</h3>
+				<ul>					
+					{this.state.episodeGuide.map((episode) => {
+						return (
+							<li>{episode.EPISODE}: {episode.TITLE}</li>
+						)
+					})}
+				</ul>
+			</div>
+		</section>
+</div>		
 		)
 	}
 	componentDidMount() {
+
 			const dbRef = firebase.database().ref();
 
 // initial database query to grab main data array and also to grab list of painting details
