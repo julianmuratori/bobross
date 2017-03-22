@@ -135,6 +135,11 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 * {
   transition: 0.5s all; }
 
+.zIndex {
+  position: relative;
+  z-index: 10;
+  color: #ff7c81; }
+
 html {
   font-size: 62.5%; }
 

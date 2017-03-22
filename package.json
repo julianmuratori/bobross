@@ -25,6 +25,9 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "react-scrollable-anchor": "^0.4.1"
+    "fbjs": "^0.8.11",
+    "react-fontawesome": "^1.5.0",
+    "react-scrollable-anchor": "^0.4.1",
+    "react-scrollchor": "^2.2.0"
   }
 }

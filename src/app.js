@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ScrollableAnchor from 'react-scrollable-anchor';
+import Scrollchor from 'react-scrollchor';
+var FontAwesome = require('react-fontawesome');
+
 
 // initializes firebase
   var config = {
@@ -92,6 +94,8 @@ class App extends React.Component {
   		console.log("No Results")
   	}
 
+
+
   	this.setState({
   		episodeGuide: details[0]
   	})
@@ -104,7 +108,7 @@ class App extends React.Component {
       <div className="siteHeading">
   			<h1>The Joy of Painting</h1>
         <p>What are you interested in learning to paint? Let's find out!</p>
-        <a href="#section1">Whatever</a>
+        <Scrollchor to="#section1" animate={{offset: 0, duration: 700}} className="zIndex">Placeholder</Scrollchor>
       </div>
 			<div className="cloud cloud1">
 				<img src="../src/assets/images/cloud1.png"/>
@@ -120,7 +124,7 @@ class App extends React.Component {
 			</div>
 		</div>
 	</header>
-	<div className="wrapper">
+	<div id="section1" className="wrapper">
 		<div className="paintDetails main">
 			<h3>Select the happiest of painting details:</h3>
  			<ul className="paintDetails__flex">
@@ -147,7 +151,7 @@ class App extends React.Component {
 		</div>
 	</div>
 
-	<footer className="bottomSection">
+	<footer className="bottomSection" id='section2'>
 			<div>
   			<h3>Here's a small taste of what Bob has to offer...</h3>
   				<ul className="episodeList">

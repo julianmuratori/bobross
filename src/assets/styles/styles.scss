@@ -10,6 +10,12 @@ $textStroke: .3px rgba(0,0,0,0.4);
 $textStroke1: .5px rgba(0,0,0,0.4);
 $textStrokeBottom: .3px $brandPrimaryButton;
 
+.zIndex {
+	position: relative;
+	z-index: 10;
+	color: $brandSecondary;
+}
+
 html {
 	font-size: 62.5%;
 }

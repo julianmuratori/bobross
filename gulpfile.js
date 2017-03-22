@@ -9,6 +9,8 @@ const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
 const sass = require('gulp-sass');
 const concat = require('gulp-concat');
+const scroll = require('react-scrollchor');
+
 
 gulp.task('styles', () => {
     return gulp.src('./src/assets/styles/*.scss')
