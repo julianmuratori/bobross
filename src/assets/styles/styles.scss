@@ -24,6 +24,7 @@ body {
 	margin: 0;
 	padding: 0;
 	max-width: 1300px;
+	background: $brandPrimary;
 	margin: 0 auto;
 	font-family: 'Yesteryear', cursive;
 }
@@ -78,6 +79,7 @@ div.treeSVG {
 	right: 20px;
 	top: 20px;
 }
+
 .cloud {
 	width: 20%;
 	color: white;
@@ -129,6 +131,8 @@ div.treeSVG {
 .wrapper {
 	display: flex;
 	height: 100vh;
+	padding-top: 100px;
+	padding-bottom: 100px;
 	background: -webkit-gradient(linear, center bottom, center top, color-stop(0%, rgba(255,124,129,1)), color-stop(100%, rgba(180,124,128,1)));
 	justify-content: space-around;
 	flex-direction: column;
@@ -142,13 +146,15 @@ div.treeSVG {
 h3 {
 	margin: 0;
 	text-align: center;
-	padding-bottom: 30px;
+	padding: 60px 0 30px;
 	color: $brandPrimary;
 	-webkit-text-stroke: 0.3px rgba(0,0,0,0.3);
-	font-size: 3rem;
+	font-size: 2rem;
 	font-weight: normal;
 
 }
+
+
 
 .paintDetails__flex {
 	display: flex;
@@ -178,7 +184,7 @@ ul {
 	-webkit-text-stroke: $textStroke1;
 	padding: 5px 8px;
 	margin: 5px 3px;
-	font-size: 2.5rem;
+	font-size: 1.8rem;
 
 	&:hover {
 		transform: scale(1.2);
@@ -193,7 +199,7 @@ ul {
 	-webkit-text-stroke: $textStroke1;
 	padding: 5px 8px;
 	margin: 5px 3px;
-	font-size: 2.5rem;
+	font-size: 2.2rem;
 
 	&:hover {
 		transform: scale(1.2);
@@ -210,7 +216,8 @@ ul {
 
 .button {
 	display: block;
-	width: 50%;
+	width: 100%;
+	margin-bottom: 30px;
 	background: none;
 	-webkit-text-stroke: $textStroke1;
 	border: none;
@@ -227,15 +234,16 @@ ul {
 
 .bottomSection {
 	height: 100vh;
-	background: -webkit-gradient(linear, center bottom, center top, color-stop(0%, rgba(255,191,124,1)), color-stop(80%, rgba(255,124,129,1)));
+	background: -webkit-gradient(linear, center bottom, center top, color-stop(0%, rgba(255,145,124,1)), color-stop(80%, rgba(255,124,129,1)));
 	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
 	h3 {
-		padding-top: 75px;
-		color: $brandFourth;
+		padding-top: 40px;
+		font-size: 2.4rem;
+		color: $brandPrimary;
 		-webkit-text-stroke: $textStroke;
 	}
 
@@ -247,7 +255,7 @@ ul {
 		text-align: center;
 
 		h3 {
-		color: $brandSecondary;
+		color: $brandPrimary;
 		}
 	}
 }
@@ -256,7 +264,7 @@ ul {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 80%;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -265,6 +273,28 @@ ul {
 	color: $brandFourth;
 	-webkit-text-stroke: $textStroke;
 	margin: 5px 3px;
-	font-size: 3rem;
+	font-size: 2rem;
 	padding: 25px 0;
+}
+
+
+@media (max-width: 730px) {
+	.rossContainer {
+		display: none;
+	}
+
+	.wrapper h3 {
+		padding-top: 150px;
+	}
+}
+
+@media (max-width: 430px) {
+	.wrapper {
+		padding-top: calc(100vh + 50px);
+		padding-bottom: calc(100vh + 30px);
+
+	}
+	.endPage h3 {
+		padding-top: 20px;
+	}
 }

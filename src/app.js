@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Scrollchor from 'react-scrollchor';
-var FontAwesome = require('react-fontawesome');
+import FontAwesome from 'react-fontawesome';
 
 
 // initializes firebase
@@ -108,7 +107,6 @@ class App extends React.Component {
       <div className="siteHeading">
   			<h1>The Joy of Painting</h1>
         <p>What are you interested in learning to paint? Let's find out!</p>
-        <Scrollchor to="#section1" animate={{offset: 0, duration: 700}} className="zIndex">Placeholder</Scrollchor>
       </div>
 			<div className="cloud cloud1">
 				<img src="../src/assets/images/cloud1.png"/>
@@ -124,9 +122,9 @@ class App extends React.Component {
 			</div>
 		</div>
 	</header>
-	<div id="section1" className="wrapper">
+	<div className="wrapper">
 		<div className="paintDetails main">
-			<h3>Select the happiest of painting details:</h3>
+			<h3 id="section1">Select the happiest of painting details:</h3>
  			<ul className="paintDetails__flex">
  				{this.state.paintDetails.map((detail, i) => {
  						return (
