@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ScrollableAnchor from 'react-scrollable-anchor';
 
 // initializes firebase
   var config = {
@@ -29,8 +30,9 @@ class App extends React.Component {
 
   // Allows user to add a selected item from the populated list
   addItem(detail, index) {
+
   	const newDetailsSelection = Array.from(this.state.paintDetailsSelection);
-  	newDetailsSelection.push(detail)  	
+  	newDetailsSelection.push(detail)
 
   	const newDetails = Array.from(this.state.paintDetails)
   	newDetails.splice(index, 1)
@@ -39,7 +41,7 @@ class App extends React.Component {
   		paintDetailsSelection: newDetailsSelection,
   		paintDetails: newDetails
   	})
-  	
+
   }
   // Removes items from selections list
   removeItem(detail, index) {
@@ -64,16 +66,16 @@ class App extends React.Component {
    	const details = []
   	const firstQuery = episodeArray.filter((episode) => {
   		return episode[newArray[0]]
-	}) 
+	})
   	const secondQuery = firstQuery.filter((episode) => {
   		return episode[newArray[1]]
   	})
 
   	const thirdQuery = secondQuery.filter((episode) => {
 	return episode[newArray[2]]
-  	
+
   	})
-  	
+
   	if (secondQuery.length === 0) {
   		details.push(firstQuery)
   	} else if (thirdQuery.length === 0) {
@@ -89,7 +91,7 @@ class App extends React.Component {
   	} else if (details[0].length < 1) {
   		console.log("No Results")
   	}
-  	
+
   	this.setState({
   		episodeGuide: details[0]
   	})
@@ -99,35 +101,29 @@ class App extends React.Component {
 <div>
 	<header>
 		<div className="headerStyle">
-			<h1>The Joy of Painting!</h1>
-			<div className="cloud">
-				<img src="../src/assets/images/cloud-2.svg"/>
+      <div className="siteHeading">
+  			<h1>The Joy of Painting</h1>
+        <p>What are you interested in learning to paint? Let's find out!</p>
+        <a href="#section1">Whatever</a>
+      </div>
+			<div className="cloud cloud1">
+				<img src="../src/assets/images/cloud1.png"/>
 			</div>
 			<div className="rossContainer">
 				<img src="../src/assets/images/ross-portrait.jpg" className="rossPhoto"/>
 			</div>
+      <div className="cloud cloud2">
+        <img src="../src/assets/images/cloud1.png"/>
+      </div>
 			<div className="treeSVG">
 				<img src="../src/assets/images/treeline1.svg"/>
 			</div>
 		</div>
 	</header>
-	<div className="wrapper">	
-		<div className="selectedDetails main">
-		<p>hey</p>
-		<form onSubmit={this.episodeGuide}>
-			<ul>
-				{this.state.paintDetailsSelection.map((detail, i) => {
-					return (
-						<li onClick={() => this.removeItem(detail, i)} className="paintDetails__detail animation-target">{detail}</li>
-					)
-				})}
-			</ul>
-			<button>GIMME</button>
-		</form>
-		</div>	
+	<div className="wrapper">
 		<div className="paintDetails main">
-			<h3>Select the happiest of details: </h3>
- 			<ul>
+			<h3>Select the happiest of painting details:</h3>
+ 			<ul className="paintDetails__flex">
  				{this.state.paintDetails.map((detail, i) => {
  						return (
  							<li onClick={() => this.addItem(detail, i)} name={detail} key={detail} id={`${i}`} className="paintDetails__detail animation-target" ref={ref => this.detail = ref}>{detail}</li>
@@ -136,21 +132,37 @@ class App extends React.Component {
 				)}
  			</ul>
 		</div>
-	</div>	
-	<section>
-			<div>
 
-			<h3>Here's a sick list of episodes</h3>
-				<ul>					
-					{this.state.episodeGuide.map((episode) => {
-						return (
-							<li>{episode.EPISODE}: {episode.TITLE}</li>
-						)
-					})}
-				</ul>
+    <div className="paintDetails main">
+		<form onSubmit={this.episodeGuide} className="selectedItems">
+			<ul className="paintDetails__flex">
+				{this.state.paintDetailsSelection.map((detail, i) => {
+					return (
+						<li onClick={() => this.removeItem(detail, i)} className="paintDetails__SelectedDetail animation-target">{detail}</li>
+					)
+				})}
+			</ul>
+			<button className="button">So...which episodes should I watch?</button>
+		</form>
+		</div>
+	</div>
+
+	<footer className="bottomSection">
+			<div>
+  			<h3>Here's a small taste of what Bob has to offer...</h3>
+  				<ul className="episodeList">
+  					{this.state.episodeGuide.map((episode) => {
+  						return (
+  							<li className="paintDetails__FinalList">{episode.EPISODE}: {episode.TITLE}</li>
+  						)
+  					})}
+  				</ul>
+        <div className="endPage">
+          <h3>Wishing you pleasant painting and chill vibes, friend</h3>
+        </div>
 			</div>
-		</section>
-</div>		
+	</footer>
+</div>
 		)
 	}
 	componentDidMount() {

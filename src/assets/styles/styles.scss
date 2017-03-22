@@ -1,5 +1,15 @@
 @import './setup';
 
+$brandPrimary: rgb(124,255,251);
+$brandPrimaryButton: rgba(124,255,251,0.5);
+$brandSecondary: rgb(255,124,129);
+$brandTertiary: rgb(255,190,124);
+$brandFourth: rgb(215,190,255);
+
+$textStroke: .3px rgba(0,0,0,0.4);
+$textStroke1: .5px rgba(0,0,0,0.4);
+$textStrokeBottom: .3px $brandPrimaryButton;
+
 html {
 	font-size: 62.5%;
 }
@@ -17,7 +27,7 @@ h1 {
 	font-size: 6rem;
 	animation: fadeIn 5s linear;
 	text-align: center;
-	padding-top: 100px;
+	// padding-top: 40%;
 }
 
 .headerStyle {
@@ -27,7 +37,20 @@ h1 {
 	background-position: center bottom;
 	height: 100vh;
 	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
+}
+
+.siteHeading {
+	text-align: center;
+	color: rgb(255,124,129);
+	-webkit-text-stroke: $textStroke;
+
+	p {
+		font-size: 3rem;
+	}
 }
 
 
@@ -49,23 +72,26 @@ div.treeSVG {
 	right: 20px;
 	top: 20px;
 }
+.cloud {
+	width: 20%;
+	color: white;
 
-// svg.cloud {
-//   height: 50%;
-//   width: 50%;
-// }
-// path {
-//   fill: white;
-//   stroke: white;
-//   stroke-width: 2;
-//   stroke-linejoin: round;
-// }
+	img {
+		width: 100%;
+	}
+}
 
-// .headerStyle .cloud {
-// 	width: 20%;
-// 	color: white;
-// }
+.cloud1 {
+	position: absolute;
+	top: 20px;
+	left: 50px;
+}
 
+.cloud2 {
+	position: absolute;
+	bottom: 20%;
+	right: 20px;
+}
 .rossPhoto {
 	border-radius: 50%;
 	border: 1px solid rgb(124,255,251);
@@ -97,17 +123,40 @@ div.treeSVG {
 .wrapper {
 	display: flex;
 	height: 100vh;
-	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(255,124,129,1)), color-stop(100%, rgba(180,124,128,1))); 
+	background: -webkit-gradient(linear, center bottom, center top, color-stop(0%, rgba(255,124,129,1)), color-stop(100%, rgba(180,124,128,1)));
+	justify-content: space-around;
+	flex-direction: column;
+	align-items: center;
 }
 
-div.main {
-	width: calc(50% - 100px);
-	// background-color: rgb(215,233,222);
-	background-color: rgb(124,255,251);
-	padding: 30px;
-	margin: 50px;
-	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.3);
-	height: 65%;
+.paintDetails {
+	width: 75%;
+}
+
+h3 {
+	margin: 0;
+	text-align: center;
+	padding-bottom: 30px;
+	color: $brandPrimary;
+	-webkit-text-stroke: 0.3px rgba(0,0,0,0.3);
+	font-size: 3rem;
+	font-weight: normal;
+
+}
+
+.paintDetails__flex {
+	display: flex;
+	flex-flow: wrap;
+	justify-content: space-between;
+	padding: 20px 0 40px;
+
+}
+
+.paintDetailsSelections__flex {
+	display: flex;
+	flex-flow: wrap;
+	flex-direction: column;
+	justify-content: space-around;
 
 }
 
@@ -119,10 +168,97 @@ ul {
 
 .paintDetails__detail {
 	display: inline-block;
-	// background: red;
-	// color: white;
-	border: 1px solid red;
-	padding: 3px;
-	margin: 3px;
+	color: $brandPrimary;
+	-webkit-text-stroke: $textStroke1;
+	padding: 5px 8px;
+	margin: 5px 3px;
+	font-size: 2.5rem;
+
+	&:hover {
+		transform: scale(1.2);
+		cursor: pointer;
+		color: $brandTertiary;
+	}
 }
 
+.paintDetails__SelectedDetail {
+	display: inline-block;
+	color: $brandTertiary;
+	-webkit-text-stroke: $textStroke1;
+	padding: 5px 8px;
+	margin: 5px 3px;
+	font-size: 2.5rem;
+
+	&:hover {
+		transform: scale(1.2);
+		cursor: pointer;
+		color: $brandPrimary;
+	}
+}
+.selectedItems {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.button {
+	display: block;
+	width: 50%;
+	background: none;
+	-webkit-text-stroke: $textStroke1;
+	border: none;
+	font-size: 3rem;
+	color: $brandPrimary;
+	border-radius: 5px;
+
+	&:hover {
+		-webkit-text-stroke: $brandPrimary;
+		color: $brandTertiary;
+		transform: scale(1.2);
+	}
+}
+
+.bottomSection {
+	height: 100vh;
+	background: -webkit-gradient(linear, center bottom, center top, color-stop(0%, rgba(255,191,124,1)), color-stop(80%, rgba(255,124,129,1)));
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	h3 {
+		padding-top: 75px;
+		color: $brandFourth;
+		-webkit-text-stroke: $textStroke;
+	}
+
+	.endPage {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		text-align: center;
+
+		h3 {
+		color: $brandSecondary;
+		}
+	}
+}
+
+.episodeList {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.paintDetails__FinalList {
+	display: inline-block;
+	color: $brandFourth;
+	-webkit-text-stroke: $textStroke;
+	margin: 5px 3px;
+	font-size: 3rem;
+	padding: 25px 0;
+}
